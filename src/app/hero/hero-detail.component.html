@@ -1,10 +1,12 @@
-<div *ngIf="hero" class="panel panel-primary">
-      <div class="panel-heading">
-        <h3>{{hero.name}} Details:</h3>     
-      </div>
-      <div class="panel-body">
-        <div class="input-group"><label>Id: </label> {{hero.id}}</div>
-        <div class="input-group"><label for="txtHeroName">Name: </label> 
-        <input class="form-control" [(ngModel)]= "hero.name" placeholder="Name" name="txtHeroName" id="txtHeroName"/>
-      </div>
+<div *ngIf="hero" class="panel panel-info">
+  <div class="panel-heading">
+    <h3>{{hero.name}} Details:</h3>
+  </div>
+  <div class="panel-body">
+    <div class="input-group"><label>Id: </label> {{hero.id}}</div>
+    <div class="input-group"><label for="txtHeroName">Name: </label>
+      <input class="form-control" [(ngModel)]="hero.name" placeholder="Name" name="txtHeroName" id="txtHeroName" />
     </div>
+  </div>
+  <button class="btn btn-default" (click)="goBack()">Back</button>
+</div>
