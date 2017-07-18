@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import { Hero } from './hero/hero';
 
-export class Hero{
-  id: number;
-  name: string;
-}
 
 const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },
@@ -20,38 +17,13 @@ const HEROES: Hero[] = [
 
 @Component({
   selector: 'my-app',
-  template: `<h1>{{title}}</h1>
-  <div class="container">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2>My Heroes:</h2>      
-      </div>
-      <div class="panel-body">
-        <ul>
-        <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
-          <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </li>
-        </ul>
-      </div>
-    </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3>{{hero.name}} Details:</h3>      
-      </div>
-      <div class="panel-body">
-        <div class="input-group"><label>Id: </label> {{hero.id}}</div>
-        <div class="input-group"><label for="txtHeroName">Name: </label> 
-        <input class="form-control" [(ngModel)]= "hero.name" placeholder="Name" name="txtHeroName" id="txtHeroName"/>
-      </div>
-    </div>
-  </div>`,
+  template: `<h1>{{title}}</h1>     
+  <hero-list [heroes]="heroes"></hero-list>  
+  `
 })
 export class AppComponent  {
    title = 'Tour of Heroes'; 
-   selectedHero : Hero;
+   
    heroes = HEROES;
-
-   onSelect(hero: Hero): void {
-      this.selectedHero = hero;
-    }
+   count = HEROES.length;   
   }

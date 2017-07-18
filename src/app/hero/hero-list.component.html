@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2>My {{count}} Heroes! </h2>
+        </div>
+        <div class="panel-footer">
+            <ul class="nav nav-pills nav-stacked">
+                <li *ngFor="let h of heroes" [class.active]="h === selectedHero">
+                    <a href="#" (click)="onSelect(h)">
+        <span class="badge">{{h.id}}</span>
+        {{h.name}}</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<hero-detail [hero]="selectedHero"></hero-detail>
