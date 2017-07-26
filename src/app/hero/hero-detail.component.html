@@ -3,10 +3,13 @@
     <h3>{{hero.name}} Details:</h3>
   </div>
   <div class="panel-body">
-    <div class="input-group"><label>Id: </label> {{hero.id}}</div>
+    <div class="input-group"><label>Id: </label> {{hero.heroId}}</div>
     <div class="input-group"><label for="txtHeroName">Name: </label>
       <input class="form-control" [(ngModel)]="hero.name" placeholder="Name" name="txtHeroName" id="txtHeroName" />
     </div>
+    <div class="input-group"><label>Created: </label> {{hero.created | date}}</div>
+    <div class="input-group"><label>Updated: </label> {{hero.updated | date:'medium'}}</div>
   </div>
   <button class="btn btn-default" (click)="goBack()">Back</button>
+  <button class="btn btn-info" (click)="save()">Save</button>
 </div>

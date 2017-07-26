@@ -27,7 +27,9 @@ export class HeroListComponent implements OnInit {
     getHeroes(): void {
         this.heroService.getHeroes().then(heroes => {
             this.heroes = heroes;
-            this.count = this.heroes.length;
+            if (this.heroes) {
+                this.count = this.heroes.length;
+            }
         }
         );
     }
@@ -35,11 +37,12 @@ export class HeroListComponent implements OnInit {
     onSelect(hero: Hero): void {
         if (hero) {
             this.selectedHero = hero;
-            console.log('Selected hero: ' + hero.name);
+            console.log('Selected hero: ' + hero.name + '(' + hero.heroId + ')');
         }
     }
 
     goToDetail(): void {
-        this.router.navigate(['/detail', this.selectedHero.id]);
+        console.log('List: Go to detail ' + this.selectedHero.heroId);
+        this.router.navigate(['/detail', this.selectedHero.heroId]);
     }
 }

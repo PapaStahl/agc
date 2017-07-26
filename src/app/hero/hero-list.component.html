@@ -5,11 +5,9 @@
         </div>
         <div class="panel-footer">
             <div class="list-group">
-                <div style="cursor:pointer;" class="list-groupg-item" *ngFor="let h of heroes"                 
-                (click)="onSelect(h)"
-                [class.text-info]="h === selectedHero">
-        <span class="badge">{{h.id}}</span> {{h.name}}
-                
+                <div style="cursor:pointer;" class="list-groupg-item" *ngFor="let h of heroes" (click)="onSelect(h)" [class.text-info]="h === selectedHero">
+                    <span class="badge">{{h.heroId}}</span> {{h.name}}
+
                 </div>
             </div>
 
