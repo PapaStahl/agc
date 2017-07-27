@@ -12,7 +12,7 @@ export class HeroService {
     constructor(private http: Http) { }
 
     getHeroes(): Promise<Hero[]> {
-        console.log('getting heroses from api...');
+        console.log('getting heroes from api...');
         return this.http.get(this.heroesUrl)
             .toPromise()
             .then(response => {
@@ -42,6 +42,25 @@ export class HeroService {
             .toPromise()
             .then(() => hero)
             .catch(this.handleError);
+    }
+
+    createHero(name: string): Promise<Hero>{
+        console.log(`Creating ${name} hero.`);
+        return this.http.post(this.heroesUrl,
+            JSON.stringify({name: name}),
+            {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().value as Hero)
+            .catch(this.handleError);
+    }
+
+    deleteHero(id: number): Promise<void>{
+        console.log(`Deleting Hero with heroId ${id}.`);
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+        .toPromise()
+        .then(()=>null)
+        .catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {

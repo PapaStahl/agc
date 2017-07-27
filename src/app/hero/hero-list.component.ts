@@ -45,4 +45,18 @@ export class HeroListComponent implements OnInit {
         console.log('List: Go to detail ' + this.selectedHero.heroId);
         this.router.navigate(['/detail', this.selectedHero.heroId]);
     }
+
+    add(name: string): void {
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.heroService.createHero(name)
+            .then(hero => {
+                this.heroes.push(hero);
+                this.count++;
+                this.selectedHero = null;
+            });
+    }
+
 }
