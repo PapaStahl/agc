@@ -1,0 +1,16 @@
+<div class="row col-md-4">
+    <div class="pane panel-info">
+        <div class="pane-heading">
+            <div class="input-group" id="search-component">
+                <label for="search-box">Hero Search: </label>
+                <input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control" />
+            </div>
+            <div class="panel-footer">
+                <div class="list-group">
+                    <div *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)" class="list-group-item" style="cursor:pointer"><span class="badge">{{hero.heroId}}</span> {{hero.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
