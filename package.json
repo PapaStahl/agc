@@ -34,7 +34,6 @@
     "@angular/router": "~4.0.0",
     "angular-in-memory-web-api": "~0.3.0",
     "core-js": "^2.4.1",
-    "fsevents": "^1.1.2",
     "rxjs": "^5.4.2",
     "systemjs": "0.19.40",
     "zone.js": "^0.8.4"
@@ -57,6 +56,9 @@
     "rimraf": "^2.5.4",
     "tslint": "^3.15.1",
     "typescript": "~2.1.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^1.1.2"
   },
   "repository": {}
 }
